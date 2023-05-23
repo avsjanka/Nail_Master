@@ -1,0 +1,113 @@
+.App{
+  position: absolute;
+  left: 0px;
+  top: 0px; 
+  background: #feefc8;
+  background-blend-mode: normal;
+}
+
+#margo {
+  position: absolute;
+  left: 71px;
+  top: 43px;
+  width: 1708px;
+  height: 219px;
+  border-radius: 37px;
+  background: #fbcdbe;
+  background-blend-mode: normal;
+}
+
+#margo_label{
+  position: absolute;
+  left: 63px;
+  top: 43px;
+  width: 1708px;
+  height: 157px;
+  color: #c587ae;
+  font-family: Shrikhand;
+  font-size: 104px;
+  font-weight: 400;
+}
+
+#contacts{
+    position: absolute;
+    left: 71px;
+    top: 926px;
+    width: 1708px;
+    height: 123px;
+    border-radius: 37px;
+    background: #fbcdbe;
+    background-blend-mode: normal;
+}
+
+.services{
+  display: inline;
+  margin-top: 200px;
+  width: 1708px;
+  top: 300px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  align-items: left;
+  margin-top: 300px;
+  margin-left: 126px;
+  left: 71px;
+    top: 926px;
+    width: 1708px;
+    height: 123px;
+}
+
+  main .service {
+    width: 30%;
+    margin-bottom: 50px;
+    text-align: left;
+    margin-right: 105px;
+    width: 302px;
+    height: 250px;
+    border-radius: 51px;
+    background: #8c759f;
+  }
+
+
+  .service_name{
+    position: initial;
+    left: 21px;
+    top: 31px;
+    width: 260px;
+    height: 55px;
+    margin-left: 20px;
+    color: #fab8c7;
+    font-family: "Sansita One";
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .price_bth{
+    left: 15.16px;
+    top: 5.27px;
+    width: 199.68px;
+    height: 41.98px;
+    color: #c587ae;
+    font-family: "Scope One";
+    font-size: 24px;
+    font-weight: 400;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    border-radius: 11px;
+    margin-left: 51px;
+    background: #d3add2;
+  }
+  .price_bth:active{
+    background: #feefc8;
+  }
+  
+  

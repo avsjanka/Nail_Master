@@ -1,0 +1,149 @@
+.login{
+    position: absolute;
+    left: 547px;
+    top: 114px;
+    width: 825px;
+    height: 752px;
+    border-radius: 51px;
+    background: #fbcdbe;
+    background-blend-mode: normal;
+}
+
+.button{
+    position: absolute;
+    left: 0px;
+    top: 600px;
+    left: 268.5px;
+    width: 208px;
+    height: 85px;
+    align-items: center;
+    font-family: "Sansita One";
+    font-size: 50px;
+    padding-top: 21px;
+    padding-left: 70px;
+    color: #c587ae;
+    border-radius: 31px;
+    background: #fab8c7;
+    background-blend-mode: normal;
+}
+.button:active{
+    background:#d3add2;
+}
+INPUT[type="text"], textarea{
+    position: absolute;
+    border:0;
+    left: 62.5px;
+    top: 237px;
+    width: 699px;
+    height: 113px;
+    border-radius: 31px;
+    background: #fab8c7;
+    font-family: "Scope One";
+    font-size: 30px;
+    color: #c587ae;
+    padding-left: 10px;
+    background-blend-mode: normal;
+}
+:focus {
+
+    font-size: large;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+  }
+
+INPUT[type="password"], textarea{
+    position: absolute;
+    border:0;
+    left: 62.5px;
+    top: 427px;
+    width: 699px;
+    height: 113px;
+    padding-left: 10px;
+    font-family: "Scope One";
+    font-size: 30px;
+    color: #c587ae;
+    border-radius: 31px;
+    background: #fab8c7;
+    font-family: "Scope One";
+    background-blend-mode: normal;
+  }
+
+  #login{
+    position: absolute;
+    left: 100px;
+    height: 55px;
+    color: #ca87ae;
+    margin-top: 190px;
+    font-size: 36px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-family: "Sansita One";
+  }
+
+  #password{
+    position: absolute;
+    left: 100px;
+    height: 55px;
+    color: #ca87ae;
+    margin-top: 380px;
+    font-size: 36px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-family: "Sansita One";
+  }
+
+  #margo_label_reg{
+    position: absolute;
+    left: 63px;
+    top: 43px;
+    width: 800px;
+    height: 157px;
+    color: #c587ae;
+    font-family: Shrikhand;
+    font-size: 104px;
+    font-weight: 400;
+  }
+
+  .reg_button{
+    position: absolute;
+    left: 0px;
+    top: 600px;
+    left: 400px;
+    width: 268px;
+    height: 85px;
+    align-items: center;
+    font-family: "Sansita One";
+    font-size: 50px;
+    padding-top: 21px;
+    padding-left: 30px;
+    color: #c587ae;
+    border-radius: 31px;
+    background: #fab8c7;
+    background-blend-mode: normal;
+  }
+  .reg_button:active{
+    background:#d3add2;
+  }
+
+  .btn{
+    position: absolute;
+    left: 0px;
+    top: 600px;
+    left: 100px;
+    width: 208px;
+    height: 85px;
+    align-items: center;
+    font-family: "Sansita One";
+    font-size: 50px;
+    padding-top: 21px;
+    padding-left: 70px;
+    color: #c587ae;
+    border-radius: 31px;
+    background: #fab8c7;
+    background-blend-mode: normal;
+  }
+  .btn:active{
+    background:#d3add2;
+  }
