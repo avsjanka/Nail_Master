@@ -9,8 +9,11 @@ class CredentialModel(BaseModel):
 class UserModel(BaseModel):
     id_client: int
     login: str
+    telegramm_id: int = 0
     password: str
-    telegramm_id: int
+
+class AccessTokenModel(BaseModel):
+    token: str
 
 class RecordingModel(BaseModel):
     id_rec: int
@@ -19,10 +22,19 @@ class RecordingModel(BaseModel):
     service: int
     extra_service_id: int
 
+class NewRecordingModel(BaseModel):
+    login: int
+    time: str
+    data: str
+    service: int
+    extra_service_ids: str
+
 class ServiceModel(BaseModel):
     id_service: int
-    name: str
+    name_service: str
+    type: str
     price: int
+    time: int
 
 class Data(BaseModel):
   id_time: int
