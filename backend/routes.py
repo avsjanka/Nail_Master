@@ -130,14 +130,14 @@ async def update_service(
     cursor = database.execute('''SELECT * FROM "Service" where id_service = %s''',(service.id_service,))
     old_service = ServiceModel(**cursor.fetchone())
     if old_service.price != service.price:
-        database.execute('''update "Service" set price = %s where id_service = %s''',(service.price,old_service.id))
-        database.commit()
+        database.execute('''update "Service" set price = %s where id_service = %s''',(service.price,old_service.id_service))
+        database.connection.commit()
     elif old_service.name_service != service.name_service:
-        database.execute('''update "Service" set name_service = %s where id_service = %s''',(service.name_service,old_service.id))
-        database.commit()
+        database.execute('''update "Service" set name_service = %s where id_service = %s''',(service.name_service,old_service.id_service))
+        database.connection.commit()
     elif old_service.time != service.time:
-        database.execute('''update "Service" set time = %s where id_service = %s''',(service.time,old_service.id))
-        database.commit()
+        database.execute('''update "Service" set time = %s where id_service = %s''',(service.time,old_service.id_service))
+        database.connection.commit()
     cursor = database.execute('''SELECT * FROM "Service" where id_service = %s''',(service.id_service,))
     service = ServiceModel(**cursor.fetchone())
     return service
@@ -150,14 +150,14 @@ async def update_extra_service(
     cursor = database.execute('''SELECT * FROM "Extra_service" where id_extra_service = %s''',(service.id_service,))
     old_service = ServiceModel(**cursor.fetchone())
     if old_service.price != service.price:
-        database.execute('''update "Extra_service" set price = %s where id_extra_service = %s''',(service.price,old_service.id))
-        database.commit()
+        database.execute('''update "Extra_service" set price = %s where id_extra_service = %s''',(service.price,old_service.id_service))
+        database.connection.commit()
     elif old_service.name_service != service.name_service:
-        database.execute('''update "Extra_service" set name_service = %s where id_extra_service = %s''',(service.name_service,old_service.id))
-        database.commit()
+        database.execute('''update "Extra_service" set name_service = %s where id_extra_service = %s''',(service.name_service,old_service.id_service))
+        database.connection.commit()
     elif old_service.time != service.time:
-        database.execute('''update "Extra_service" set time = %s where id_extra_service = %s''',(service.time,old_service.id))
-        database.commit()
+        database.execute('''update "Extra_service" set time = %s where id_extra_service = %s''',(service.time,old_service.id_service))
+        database.connection.commit()
     cursor = database.execute('''SELECT * FROM ""Extra_service" where id_extra_service = %s''',(service.id_service,))
     service = ServiceModel(**cursor.fetchone())
     return service
