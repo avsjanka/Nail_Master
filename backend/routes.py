@@ -1,17 +1,11 @@
 import hashlib
+from array import array
 from typing import List
-from io import BytesIO
-import random
-import string
-import ctypes
-import secrets
 
-from psycopg2 import *
-from dependencies import Database, Authentication, JWTBearerAccess
-from models import CredentialModel, UserModel, RecordingModel, ServiceModel, NewRecordingModel, Data, AccessTokenModel
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import StreamingResponse
-
+from psycopg2.extras import DictCursor
+from dependencies import Database, Authentication
+from models import CredentialModel, UserModel, RecordingModel, ServiceModel, NewRecordingModel, Data, AccessTokenModel
 
 router = APIRouter(prefix="/api")
 
@@ -30,20 +24,42 @@ async def register(
     return client_creds
 
 
-@router.post("/recording_client", response_model= RecordingModel)
+@router.post("/recording_client", response_model= NewRecordingModel)
 async def create_recording(
         recording: NewRecordingModel,
         database: Database = Depends(Database)
 ):
-     cursor = database.execute('''insert into "Data" 
-                                ("data", "time") 
-                                values (%s, %s)
-                                returning "id_time" as id_time, "data" as data, "time" as time''',
-    (recording.data, recording.time))
-     data = Data(**cursor.fetchone())
-     data = data.id_time
-     extra = recording.extra_service_ids.split(',')
-     database.connection.commit()
+     with database.connection.cursor(cursor_factory = DictCursor) as cursor:
+         cursor.execute('''insert into "Data" 
+                                    ("data", "time") 
+                                    values (%s, %s)
+                                    returning "id_time" as id_time, "data" as data, "time" as time''',
+        (recording.data, recording.time))
+         database.connection.commit()
+         data = Data(**cursor.fetchone())
+         data = data.id_time
+         extra = recording.extra_service_ids.split(',')
+
+     with database.connection.cursor(cursor_factory = DictCursor) as cursor:
+         cursor.execute('''SELECT list_extra_service_id FROM "List_extra_services" ORDER BY list_extra_service_id DESC LIMIT 1''')
+         result = cursor.fetchone()
+         if result == None:
+             list_extra_service_id = 1
+         else:
+             list_extra_service_id = result.get('list_extra_service_id')
+             list_extra_service_id += 1
+         database.connection.commit()
+     for i in range( 0,len(extra)):
+         with database.connection.cursor(cursor_factory = DictCursor) as cursor:
+            cursor.execute('''insert into "List_extra_services"
+                                        ("list_extra_service_id", "extra_service_id")
+                                        values (%s,%s)
+                                        returning "id_extra_service" as id_extra_service, "list_extra_service_id" as list_extra_service_id, "extra_service_id" as extra_service_id''',
+            (list_extra_service_id,int(extra[i])))
+            cursor.connection.commit()
+     with database.connection.cursor(cursor_factory = DictCursor) as cursor:
+          cursor.execute('''insert into ''')
+          cursor.connection.commit()
      return recording
 
 @router.post("/login", response_model=AccessTokenModel)
@@ -51,7 +67,8 @@ async def login(
         creds: CredentialModel,
         auth: Authentication = Depends(Authentication)
 ):
-    is_registered = auth.check_reg(creds.username, str(hashlib.sha256(creds.password.encode()).hexdigest()))
+    is_registered = auth.check_reg(creds.login, str(hashlib.sha256(creds.password.encode()).hexdigest()))
+
     if is_registered:
         return AccessTokenModel(token=auth.get_auth_token(is_registered[1], is_registered[0]))
     else:
@@ -69,6 +86,7 @@ async def show_services(
                          type = element[2],
                          price = element[3],
                          time = element[4]) for element in cursor.fetchall()]
+
 
 
 @router.post("/add_service",response_model= ServiceModel)
@@ -132,12 +150,15 @@ async def update_service(
     if old_service.price != service.price:
         database.execute('''update "Service" set price = %s where id_service = %s''',(service.price,old_service.id_service))
         database.connection.commit()
+
     elif old_service.name_service != service.name_service:
         database.execute('''update "Service" set name_service = %s where id_service = %s''',(service.name_service,old_service.id_service))
         database.connection.commit()
+
     elif old_service.time != service.time:
         database.execute('''update "Service" set time = %s where id_service = %s''',(service.time,old_service.id_service))
         database.connection.commit()
+
     cursor = database.execute('''SELECT * FROM "Service" where id_service = %s''',(service.id_service,))
     service = ServiceModel(**cursor.fetchone())
     return service

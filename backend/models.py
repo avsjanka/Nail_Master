@@ -23,8 +23,8 @@ class RecordingModel(BaseModel):
     extra_service_id: int
 
 class NewRecordingModel(BaseModel):
-    login: int
-    time: str
+    login: str
+    time: int
     data: str
     service: int
     extra_service_ids: str

@@ -83,19 +83,23 @@ class Database:
 class Authentication:
     def __init__(self, database: Database = Depends(Database)):
         self.database = database
+        self.connection = database.connection
 
     def check_reg(self, username, password):
         try:
-            is_registered = self.database.execute('''
-                SELECT "@User", "Username", "Password"
-                FROM "Client"
-                WHERE "Username"=%s''', (username,))
-            result = is_registered.fetchall()
-            self.database.connection.commit()
-            for i in result:
-                if i[2] == password:
-                    return i
-        except:
+            with self.connection.cursor(cursor_factory = DictCursor) as is_registered:
+                is_registered.execute('''
+                    SELECT "id_client", "login", "password"
+                    FROM "Client"
+                    WHERE "login"=%s''', (username,))
+                result = is_registered.fetchone()
+                self.connection.commit()
+                print(result.get('login'))
+                if result.get('password') == password :
+                    return result
+                else:
+                    raise HTTPException(403)
+        except Exception as e:
             raise HTTPException(403)
 
     def get_auth_token(self, username, user_id):

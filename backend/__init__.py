@@ -10,7 +10,7 @@ app.include_router(router)
 Database().create_tables()
 
 origins = [
-    "http://localhost:3001"
+   "http://localhost:3001"
 ]
 
 app.add_middleware(
