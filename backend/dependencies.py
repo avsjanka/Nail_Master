@@ -41,9 +41,7 @@ class Database:
             create_table_service_query = '''CREATE TABLE IF NOT EXISTS  "Service" (
                                         "id_service" SERIAL PRIMARY KEY,
                                             "name_service" text UNIQUE,
-                                            "type" text,
-                                            "price" int,
-                                            "time" int
+                                            "price" int
                                         );'''
             self.cursor.execute(create_table_service_query)
 
@@ -53,6 +51,7 @@ class Database:
                                           "time" int
                                         );'''
             self.cursor.execute(create_table_data_query)
+
             create_table_extra_service_query = '''CREATE TABLE IF NOT EXISTS  "Extra_service" (
                                         "id_extra_service" SERIAL PRIMARY KEY,
                                           "name_service" text UNIQUE,
@@ -60,12 +59,21 @@ class Database:
                                           "time" int
                                         );'''
             self.cursor.execute(create_table_extra_service_query)
+
             create_table_extra_service_list_query = '''CREATE TABLE IF NOT EXISTS  "List_extra_services"(
                                         "id_extra_service" SERIAL PRIMARY KEY, 
                                         "list_extra_serrvice_id" int,
                                           "extra_service_id" int
                                         );'''
             self.cursor.execute(create_table_extra_service_list_query)
+
+            create_table_dates_for_recordings_query = '''CREATE TABLE IF NOT EXISTS "Dates_for_recordings" (
+                                          "id_time_rec" SERIAL PRIMARY KEY,
+                                          "date_str" text,
+                                          "time" int,
+                                          "is_recorded" boolean
+                                        );'''
+            self.cursor.execute(create_table_dates_for_recordings_query)
             self.connection.commit()
 
         except:
@@ -94,8 +102,23 @@ class Authentication:
                     WHERE "login"=%s''', (username,))
                 result = is_registered.fetchone()
                 self.connection.commit()
-                print(result.get('login'))
-                if result.get('password') == password :
+                if (result.get('password') == password) :
+                    return result
+                else:
+                    raise HTTPException(403)
+        except Exception as e:
+            raise HTTPException(403)
+
+    def check_admin(self, username, password):
+        try:
+            with self.connection.cursor(cursor_factory = DictCursor) as is_registered:
+                is_registered.execute('''
+                    SELECT "id_client", "login", "password"
+                    FROM "Client"
+                    WHERE "login"=%s and "role" = %s''', (username,"administrator"))
+                result = is_registered.fetchone()
+                self.connection.commit()
+                if (result.get('password') == password) :
                     return result
                 else:
                     raise HTTPException(403)
@@ -105,9 +128,10 @@ class Authentication:
     def get_auth_token(self, username, user_id):
         try:
             key = os.environ.get("JWT_KEY") or "0db120c4bfd93e453dea115cd9079d709f452adee19e9600eedb0953d599e1b1"
-            encoded = jwt.encode({"username": username, "id": user_id}, key, algorithm="HS256")
+            encoded = jwt.encode({"login": username, "id": user_id}, key, algorithm="HS256")
             return encoded
-        except:
+        except Exception as e:
+            print(e)
             raise HTTPException(403)
 
     def verify_auth_token(self, token):

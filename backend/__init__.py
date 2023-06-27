@@ -10,7 +10,7 @@ app.include_router(router)
 Database().create_tables()
 
 origins = [
-   "http://localhost:3001"
+   "http://localhost:3000"
 ]
 
 app.add_middleware(
@@ -20,3 +20,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+#master pas *pEcg@wgkja#y4vZ

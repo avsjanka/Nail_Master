@@ -20,21 +20,22 @@ class RecordingModel(BaseModel):
     id_client: int
     id_time: int
     service: int
-    extra_service_id: int
+    #extra_service_id: int
 
 class NewRecordingModel(BaseModel):
     login: str
+    password: str
     time: int
     data: str
     service: int
-    extra_service_ids: str
+    #extra_service_ids: str
 
 class ServiceModel(BaseModel):
     id_service: int
     name_service: str
-    type: str
+    #type: str
     price: int
-    time: int
+    #time: int
 
 class Data(BaseModel):
   id_time: int
