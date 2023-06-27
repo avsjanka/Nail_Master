@@ -7,9 +7,10 @@ import Shop from './components/Shop';
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
         <Routes>
-          <Route extract path = "/" element = {<Shop/>}/>
+          <Route extract path="/" element={<Shop />} />
           <Route extract path="/admin" element={<Admin />} />
           <Route extract path="/user" element={<User />} />
         </Routes>

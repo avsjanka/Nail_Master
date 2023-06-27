@@ -1,9 +1,18 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import './Login.css'
-import {loginUser} from './login_func.js';
 
-
+async function loginUser(credentials) {
+  return fetch(`http://127.0.0.1:8000/api/login_admin`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json());
+}
 
 export default function Login({setToken}){
 
@@ -11,22 +20,22 @@ export default function Login({setToken}){
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
-        e.preventDefault();
+      e.preventDefault();
 
-        let token = await loginUser({
-            login,
-            password
-        });
-        
-       
-          let myObject = JSON.stringify(token);
-          if( myObject === '{"errorText":"Invalid username or password."}' || myObject.startsWith('{"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred."') )
-          {
-            myObject = null;
-          }
-        localStorage.setItem('jwt',myObject);
-        setToken(myObject);
-    }
+      let token = await loginUser({
+          login,
+          password
+      });
+        console.log(token)
+        let myObject = JSON.stringify(token);
+        if( myObject === '{"detail":"Forbidden"}' || myObject.startsWith('{"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred."') )
+        {
+          myObject = null;
+          <p>Неверный пароль</p>
+        }
+      localStorage.setItem('jwt',myObject);
+      setToken(myObject);
+  }
 
     return (
             <div>

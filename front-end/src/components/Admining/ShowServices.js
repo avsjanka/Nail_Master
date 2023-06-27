@@ -1,12 +1,12 @@
 
 import React from 'react';
-import Services from "./Services";
-import Service from './Service';
+import AdminServices from "./Services";
+import AdminService from './Service';
 
 
 
 
-export default class ShowServices extends React.Component {
+export default class AdminShowServices extends React.Component {
     constructor(props) {
         super(props);
 
@@ -37,15 +37,15 @@ export default class ShowServices extends React.Component {
         for (let i = AllPosts.length; i--;)
         {
             console.log(AllPosts[i]);
-            newPosts = newPosts.concat(<Service fullService = {AllPosts[i]}/>);
+            newPosts = newPosts.concat(<AdminService fullService = {AllPosts[i]} key={AllPosts[i].id_service}/>);
         }
         this.setState( {currentServices: newPosts});
     }
 
     render() {
         return (
-            <div className='services'>
-                <Services Services={this.state.currentServices} />
+            <div className='service_admin'>
+                <AdminServices AdServices={this.state.currentServices} />
             </div>
         );
     }

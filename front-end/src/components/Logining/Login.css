@@ -127,23 +127,52 @@ INPUT[type="password"], textarea{
     background:#d3add2;
   }
 
-  .btn{
+
+  .login_mini{
+    position: absolute;
+    top: 120px;
+    right: 0;
+    left: 1350px;
+    width: 365px;
+    height: 380px;
+    border-radius: 51px;
+    background:#feefc8;
+    color: #ca87ae;
+    border-color: #ca87ae;
+    z-index: 10;
+    -webkit-box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+    -moz-box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+    box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+    background-blend-mode: normal;
+  }
+
+  
+
+
+
+  .login_btn{
     position: absolute;
     left: 0px;
     top: 600px;
     left: 100px;
-    width: 208px;
+    width: 198px;
     height: 85px;
     align-items: center;
     font-family: "Sansita One";
     font-size: 50px;
     padding-top: 21px;
-    padding-left: 70px;
+    padding-left: 60px;
     color: #c587ae;
     border-radius: 31px;
     background: #fab8c7;
     background-blend-mode: normal;
   }
-  .btn:active{
+  .reg_button:active{
     background:#d3add2;
   }
+
+
+
+
+
+  

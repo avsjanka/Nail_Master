@@ -1,0 +1,289 @@
+
+.service_admin{
+    display: inline;
+    margin-top: 100px;
+    width: 1708px;
+    top: 300px;
+    z-index: 1;
+  }
+  
+  #main_admin {
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    align-items: left;
+    margin-top: 200px;
+    margin-left: 126px;
+    left: 71px;
+      top: 926px;
+      width: 1308px;
+  }
+  
+  #main_admin .service_admin {
+      width: 25%;
+      text-align: left;
+      margin-right: 5%;
+      height: 300px;
+      z-index: 1;
+      border-radius: 51px;
+      background: #ba81b8;
+    }
+  
+  
+    .service_admin_name{
+      position: relative;
+      margin-top: 60 px;
+      left: 21px;
+      top: 42px;
+      width: 260px;
+      height: 55px;
+      color: #d3add2;
+      font-family: "Sansita One";
+      vertical-align: middle;
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: center;
+      z-index: 2;
+    }
+
+
+    .price{
+      left: 15.16px;
+      top: 15.27px;
+      width: 199.98px;
+      height: 35.98px;
+      margin-top: 80px;
+      color: #d3add2;
+      font-family: "Scope One";
+      font-size: 24px;        
+      font-weight: 400;
+      display: flex;
+      vertical-align:middle;
+      text-align:center;
+      margin-left: 51px;
+      flex-wrap: nowrap;
+      align-content: center;
+      flex-direction: column;
+      padding-top: 8px;
+    }
+
+    .btn_change{
+      width: 99.98px;
+      height: 35.98px;
+      margin-top: -42.98px;
+      margin-left: 130px;
+      color: #a87bb6;
+      font-family: "Scope One";
+      font-size: 24px;        
+      font-weight: 400;
+      display: flex;
+      vertical-align:middle;
+      text-align:center;
+      border-radius: 11px;
+      background: #d99fc7;
+      padding-top: 8px;
+    }
+    .btn_change:active{
+      align-items: center;
+      background: #d3add2;
+    }
+    
+    .btn_delete{
+      width: 99.98px;
+      height: 35.98px;
+      margin-top: 80px;
+      color: #a87bb6;
+      font-family: "Scope One";
+      font-size: 24px;        
+      font-weight: 400;
+      margin-right: -50px;
+      display: flex;
+      vertical-align:middle;
+      text-align:center;
+      border-radius: 11px;
+      background: #d99fc7;
+      padding-top: 8px;
+    }
+    .btn_delete:active{
+      align-items: center;
+      background: #d3add2;
+    }
+
+
+
+    #admin_label{
+      position: absolute;
+      left: 63px;
+      top: 43px;
+      width: 808px;
+      height: 157px;
+      color: #d3add2;
+      font-family: Shrikhand;
+      font-size: 104px;z-index: 1000;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; 
+    }
+
+    .doing{
+      margin-top: -80px;
+      height: 100px;
+      width:  302px;
+      margin-left: 15%;
+    }
+
+
+    .change_div
+    {
+      position: absolute;
+      top: 90%;
+      right: 0;
+      left: 1450px;
+      width: 565px;
+      height: 180%;
+      border-radius: 51px;
+      background: #d3add2;
+      color: #ca87ae;
+      border-color: #ca87ae;
+      z-index: 10;
+      box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+      background-blend-mode: normal;
+    }
+
+    #change_service{
+      display: flex;
+      position: absolute;
+      color: #ba81b8;
+      font-family: "Sansita One";
+      font-size: 50px;
+      top: 5%;
+      left: 5%;
+      z-index: 1000;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; 
+    }
+
+    #name, textarea{
+      position: absolute;
+      border:0;
+      left: 62.5px;
+      top: 26%;
+      width: 78%;
+      height: 15%;
+      border-radius: 31px;
+      background: #d99fc7;
+      font-family: Cambria;
+      font-size: 30px;
+      color: #9b6dae;
+      padding-left: 10px;
+      background-blend-mode: normal;
+  }
+  :focus {
+  
+      font-size: large;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+    }
+
+
+#price, textarea{
+      position: absolute;
+      border:0;
+      left: 62.5px;
+      top: 56%;
+      width: 80%;
+      height: 15%;
+      border-radius: 31px;
+      background: #d99fc7;
+      font-family: "Scope One";
+      font-size: 30px;
+      color: #9b6dae;
+      padding-left: 10px;
+      background-blend-mode: normal;
+  }
+  :focus {
+  
+      font-size: large;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+    }
+
+    #name_label{
+      position: absolute;
+      border:0;
+      left: 62.5px;
+      top: 19%;
+      width: 80%;
+      height: 15%;
+      font-family: "Sansita One";
+      font-size: 30px;
+      color: #b17bb5;
+      padding-left: 10px;
+      background-blend-mode: normal;
+    }
+
+    #price_label{
+      position: absolute;
+      border:0;
+      left: 62.5px;
+      top: 49%;
+      width: 80%;
+      height: 15%;
+      font-family: "Sansita One";
+      font-size: 30px;
+      color: #b17bb5;
+      padding-left: 10px;
+      background-blend-mode: normal;
+    }
+
+    .btn_confirm{
+      justify-content: center;
+      margin-top: 80px;
+      color: #a87bb6;
+      font-family: "Scope One";
+      font-size: 30px;        
+      font-weight: 400;
+      margin-right: -50px;
+      display: flex;
+      vertical-align:middle;
+      text-align:center;
+      border-radius: 11px;
+      background: #d99fc7;
+      padding-top: 8px;
+      position: absolute;
+      align-items: center;
+      width: 30%;
+      height: 8%;
+      top: 66%;
+      left: 35%;
+    }
+    .btn_confirm:active{
+      align-items: center;
+      background: #d3add2;
+    }
+
+    .btn_add{
+      position: absolute;
+      left: 60%;
+      top: 43px;
+      width: 808px;
+      height: 157px;
+      color: #d3add2;
+      font-family: Shrikhand;
+      font-size: 104px;z-index: 1000;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; 
+    }

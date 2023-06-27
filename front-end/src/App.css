@@ -7,9 +7,9 @@
 }
 
 #margo {
-  position: absolute;
+  position: relative;
   left: 71px;
-  top: 43px;
+  top: 13px;
   width: 1708px;
   height: 219px;
   border-radius: 37px;
@@ -21,40 +21,35 @@
   position: absolute;
   left: 63px;
   top: 43px;
-  width: 1708px;
+  width: 808px;
   height: 157px;
   color: #c587ae;
   font-family: Shrikhand;
-  font-size: 104px;
-  font-weight: 400;
+  font-size: 104px;z-index: 1000;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-#contacts{
-    position: absolute;
-    left: 71px;
-    top: 926px;
-    width: 1708px;
-    height: 123px;
-    border-radius: 37px;
-    background: #fbcdbe;
-    background-blend-mode: normal;
-}
 
 .services{
   display: inline;
-  margin-top: 200px;
+  margin-top: 100px;
   width: 1708px;
   top: 300px;
+  z-index: 1;
 }
 
 main {
   display: flex;
+  z-index: 1;
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
   text-align: left;
   align-items: left;
-  margin-top: 300px;
+  margin-top: 200px;
   margin-left: 126px;
   left: 71px;
     top: 926px;
@@ -68,46 +63,300 @@ main {
     text-align: left;
     margin-right: 105px;
     width: 302px;
-    height: 250px;
+    height: 200px;
+    z-index: 1;
     border-radius: 51px;
     background: #8c759f;
   }
 
 
   .service_name{
-    position: initial;
+    position: relative;
+    margin-top: 60 px;
     left: 21px;
-    top: 31px;
+    top: 42px;
     width: 260px;
     height: 55px;
-    margin-left: 20px;
     color: #fab8c7;
     font-family: "Sansita One";
+    vertical-align: middle;
     font-size: 24px;
     font-weight: 400;
     text-align: center;
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2;
   }
 
   .price_bth{
     left: 15.16px;
-    top: 5.27px;
-    width: 199.68px;
-    height: 41.98px;
+    top: 15.27px;
+    width: 199.98px;
+    height: 35.98px;
+    margin-top: 80px;
     color: #c587ae;
     font-family: "Scope One";
-    font-size: 24px;
+    font-size: 24px;        
     font-weight: 400;
-    text-align: right;
     display: flex;
-    align-items: center;
+    vertical-align:middle;
+    text-align:center;
     border-radius: 11px;
     margin-left: 51px;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: column;
     background: #d3add2;
+    padding-top: 8px;
   }
   .price_bth:active{
+    align-items: center;
     background: #feefc8;
   }
   
-  
+  .user_panel
+  {
+    position: absolute;
+    left: 113px;
+    top: 70px;
+    width: 1662px;
+    height: 950px;
+    border-radius: 51px;
+    background: #fbcdbe;
+    background-blend-mode: normal;
+  }
+
+  #label_user{
+    position: absolute;
+    left: 62px;
+    top: 64px;
+    width: 1407px;
+    height: 145px;
+    color: #c587ae;
+    font-family: Shrikhand;
+    font-size: 72px;
+    font-weight: 400;
+  }
+
+  .nav{
+    float: rigth;
+    list-style: none;
+    font-family: "Scope One";
+    margin-top: 103px;
+    padding-top: 110px;
+    margin-left: 1000px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #c587ae;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .nav li{
+    display: inline;
+    margin-left: 45px;
+    font-family: "Scope One";
+    color: #c587ae;
+    cursor: pointer;
+    transition: opacity 5000ms ease;
+  }
+
+  .nav li:active{
+    cursor: pointer;
+    color: #fab8c7;
+    text-decoration: underline #fab8c7;
+    transition: opacity 5000ms ease;
+  }
+
+  .recording-list
+  {
+    position: absolute;
+    top: 170px;
+    width: 400px;
+    height: 500px;
+    right: 0;
+    left: 1000px;
+    background-color: #c587ae;
+    border-radius: 17px;
+    -webkit-box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+    -moz-box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+    box-shadow: 6px 0px 16px 13px rgba(245, 184, 199, 0.22);
+  }
+
+  #name_service{
+    font-size: 25px;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-family: "Sansita One";
+  }
+
+ 
+  .btn_mini{
+    position: absolute;
+    margin-left: 60px;
+    top: 305px;
+    left: 20px;
+    width: 168px;
+    height: 43px;
+    align-items: center;
+    font-family: "Sansita One";
+    font-size: 20px;
+    padding-top: 15px;
+    padding-left: 40px;
+    color: #c587ae;
+    border-radius: 31px;
+    background:#fab8c7;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .btn_mini:active{
+    background:#d3add2;
+  }
+
+  #id{
+    display: inline;
+    margin-left: 45px;
+    font-family: "Scope One";
+    color: #c587ae;
+    cursor: pointer;
+    transition: opacity 5000ms ease;
+  }
+
+  #id:active{
+    cursor: pointer;
+    color: #fab8c7;
+    text-decoration: underline #fab8c7;
+    transition: opacity 5000ms ease;
+  }
+
+  INPUT[type="date"], textarea{
+    position: absolute;
+    border:0;
+    left: 22.5px;
+    top: 60px;
+    width: 120px;
+    height: 50px;
+    border-radius: 31px;
+    background: #fab8c7;
+    font-family: "Scope One";
+    font-size: 17px;
+    color: #c587ae;
+    padding-left: 10px;
+    background-blend-mode: normal;
+}
+:focus {
+
+    font-size: large;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+  }
+
+  #login_text_mini{
+    position: absolute;
+    border:0;
+    left: 22.5px;
+    top: 137px;
+    width: 320px;
+    height: 63px;
+    border-radius: 31px;
+    background: #d3add2;
+    font-family: "Scope One";
+    font-size: 30px;
+    color: #c587ae;
+    padding-left: 10px;
+    background-blend-mode: normal;
+}
+:focus {
+
+    font-size: large;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+  }
+
+
+#password_text_mini{
+    position: absolute;
+    border:0;
+    left: 22.5px;
+    top: 227px;
+    width: 320px;
+    height: 63px;
+    border-radius: 31px;
+    background: #d3add2;
+    font-family: "Scope One";
+    font-size: 30px;
+    color: #c587ae;
+    padding-left: 10px;
+    background-blend-mode: normal;
+}
+:focus {
+
+    font-size: large;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(245,184,199, 0.25);
+  }
+
+  #login_mini{
+    position: absolute;
+    left: 42.5px;
+    top: 100px;
+    height: 55px;
+    color: #ca87ae;
+    border-radius: 4px;
+    border-color: #ca87ae;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    font-family: "Sansita One";
+  }
+
+  #password_mini{
+    position: absolute;
+    left: 42.5px;
+    height: 55px;
+    color: #ca87ae;
+    top: 190px;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-family: "Sansita One";
+  }
+
+  #time{
+    color: #ca87ae;
+    top: 190px;
+    margin-left: 200px;
+    background-color: #feefc8;
+    border-color: #feefc8;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    font-family: "Sansita One";
+  }
+
+  #tg{
+    display: inline;
+    margin-left: -100px;
+    font-family: "Scope One";
+    color: #c587ae;
+    font-size: 35px;
+    cursor: pointer;
+    transition: opacity 5000ms ease;
+  }
+
+  #tg:active{
+    cursor: pointer;
+    color: #fab8c7;
+    text-decoration: underline #fab8c7;
+    transition: opacity 5000ms ease;
+  }

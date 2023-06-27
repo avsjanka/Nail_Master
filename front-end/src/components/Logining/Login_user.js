@@ -2,8 +2,19 @@ import React, {useState} from "react";
 import axios from "axios";
 import PropTypes from 'prop-types';
 import './Login.css'
-import {loginUser} from './login_func.js'
 
+
+async function loginUser(credentials) {
+    return fetch(`http://127.0.0.1:8000/api/login`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(data => data.json());
+}
 
 
 export default function Login_User({setToken}){
@@ -13,8 +24,12 @@ export default function Login_User({setToken}){
 
     function registrate()
     {
-        const url = `${window.location.origin}/backend/adduser`;
+        //const url = `${window.location.origin}/register`;
+        //const url = `${window.location.origin}/api/login`
+        const url  = `http://127.0.0.1:8000/api/register`;
+        console.log(url)
         return axios.post(url,{
+
             login,
             password
         }).then(response => response.status);
@@ -27,16 +42,17 @@ export default function Login_User({setToken}){
             login,
             password
         });
-        
-       
+          console.log(token)
           let myObject = JSON.stringify(token);
-          if( myObject === '{"errorText":"Invalid username or password."}' || myObject.startsWith('{"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred."') )
+          if( myObject === '{"detail":"Forbidden"}' || myObject.startsWith('{"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred."') )
           {
             myObject = null;
+            <p>Неверный пароль</p>
           }
         localStorage.setItem('jwt',myObject);
         setToken(myObject);
     }
+
 
     return (
         <div>
@@ -46,7 +62,7 @@ export default function Login_User({setToken}){
               </div>
                 <div>
                     <label id="login">Login</label>
-                    <input id="login_text" type="text" className="TextPlace"  onChange={e => setLogin(e.target.value)}></input>
+                    <input  id="login_text" type="text" className="TextPlace"  onChange={e => setLogin(e.target.value)} ></input>
                 </div>
                 <div>
                     <label id="password">Password</label>
@@ -54,7 +70,7 @@ export default function Login_User({setToken}){
                 </div>
                 <div>
                     <button type="submit" id = "submit" onClick ={handleSubmit} hidden>Login</button>
-                    <label for = "submit" className="btn">Login</label>
+                    <label for = "submit" className="login_btn">Log in</label>
                     <button type="submit" id = "reg" hidden onClick={registrate} >Registrate</button>
                     <label  for = "reg" className="reg_button" >Registrate</label>
                 </div>
